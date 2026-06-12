@@ -1,0 +1,338 @@
+# Instincts generated from https://github.com/namishisu/vscode
+# Generated: 2026-06-12T01:41:32.338Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: vscode-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/namishisu/vscode
+---
+
+# Vscode Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: refactor
+
+## Evidence
+
+- 1 commits analyzed
+- Detected conventional commit pattern
+- Examples: refactor: consolidate duplicated shell detection and truncate utilities
+
+---
+id: vscode-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/namishisu/vscode
+---
+
+# Vscode Commit Length
+
+## Action
+
+Write moderate-length commit messages (~71 characters)
+
+## Evidence
+
+- Average commit message length: 71 chars
+- Based on 1 commits
+
+---
+id: vscode-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/namishisu/vscode
+---
+
+# Vscode Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: vscode-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/namishisu/vscode
+---
+
+# Vscode Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: vscode-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/namishisu/vscode
+---
+
+# Vscode Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: vscode-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/namishisu/vscode
+---
+
+# Vscode Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: vscode-instinct-file-naming
+trigger: "When creating a new file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct File Naming
+
+## Action
+
+Name the file using camelCase
+
+## Evidence
+
+- Pattern in files: namingConventions.files = camelCase
+
+---
+id: vscode-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Function Naming
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in files: namingConventions.functions = camelCase
+
+---
+id: vscode-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in files: namingConventions.classes = PascalCase
+
+---
+id: vscode-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in files: namingConventions.constants = SCREAMING_SNAKE_CASE
+
+---
+id: vscode-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in files: importStyle = relative
+
+---
+id: vscode-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in files: exportStyle = named
+
+---
+id: vscode-instinct-commit-prefix
+trigger: "When committing a refactor change"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Commit Prefix
+
+## Action
+
+Prefix the commit message with 'refactor:'
+
+## Evidence
+
+- Seen in commit: 'refactor: consolidate duplicated shell detection and truncate utilities'
+- Pattern: commits.prefixes includes 'refactor'
+
+---
+id: vscode-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Commit Format
+
+## Action
+
+Follow conventional commit format: <type>: <description>
+
+## Evidence
+
+- Pattern: commits.type = conventional
+- Examples: 'refactor: consolidate duplicated shell detection and truncate utilities'
+
+---
+id: vscode-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Commit Length
+
+## Action
+
+Keep the commit message around 70 characters
+
+## Evidence
+
+- Pattern: commits.averageLength = 71
+
+---
+id: vscode-instinct-error-handling
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Error Handling
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern: errorHandling.style = try-catch
+
+---
+id: vscode-instinct-test-location
+trigger: "When adding new tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: namishisu/vscode
+---
+
+# Vscode Instinct Test Location
+
+## Action
+
+Place test files in a separate location from source files
+
+## Evidence
+
+- Pattern: architecture.folderStructure.testLocation = separate
+
