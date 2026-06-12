@@ -5,47 +5,16 @@
 
 import { Separator } from '../../../../../base/common/actions.js';
 import { coalesce } from '../../../../../base/common/arrays.js';
-import { posix as pathPosix, win32 as pathWin32 } from '../../../../../base/common/path.js';
 import { OperatingSystem } from '../../../../../base/common/platform.js';
 import { escapeRegExpCharacters } from '../../../../../base/common/strings.js';
 import { localize } from '../../../../../nls.js';
+import { isBash, isFish, isPowerShell, isWindowsPowerShell, isZsh } from '../../../../../platform/terminal/common/terminalShellDetection.js';
 import type { TerminalNewAutoApproveButtonData } from '../../../chat/browser/widget/chatContentParts/toolInvocationParts/chatTerminalToolConfirmationSubPart.js';
 import type { ToolConfirmationAction } from '../../../chat/common/tools/languageModelToolsService.js';
 import type { ICommandApprovalResultWithReason } from './tools/commandLineAnalyzer/autoApprove/commandLineAutoApprover.js';
 import { isAutoApproveRule } from './tools/commandLineAnalyzer/commandLineAnalyzer.js';
 
-export function isPowerShell(envShell: string, os: OperatingSystem): boolean {
-	if (os === OperatingSystem.Windows) {
-		return /^(?:powershell|pwsh)(?:-preview)?$/i.test(pathWin32.basename(envShell).replace(/\.exe$/i, ''));
-
-	}
-	return /^(?:powershell|pwsh)(?:-preview)?$/.test(pathPosix.basename(envShell));
-}
-
-export function isWindowsPowerShell(envShell: string): boolean {
-	return envShell.endsWith('System32\\WindowsPowerShell\\v1.0\\powershell.exe');
-}
-
-export function isZsh(envShell: string, os: OperatingSystem): boolean {
-	if (os === OperatingSystem.Windows) {
-		return /^zsh(?:\.exe)?$/i.test(pathWin32.basename(envShell));
-	}
-	return /^zsh$/.test(pathPosix.basename(envShell));
-}
-
-export function isBash(envShell: string, os: OperatingSystem): boolean {
-	if (os === OperatingSystem.Windows) {
-		return /^bash(?:\.exe)?$/i.test(pathWin32.basename(envShell));
-	}
-	return /^bash$/.test(pathPosix.basename(envShell));
-}
-
-export function isFish(envShell: string, os: OperatingSystem): boolean {
-	if (os === OperatingSystem.Windows) {
-		return /^fish(?:\.exe)?$/i.test(pathWin32.basename(envShell));
-	}
-	return /^fish$/.test(pathPosix.basename(envShell));
-}
+export { isBash, isFish, isPowerShell, isWindowsPowerShell, isZsh };
 
 export const TRUNCATION_MESSAGE = '\n\n[... PREVIOUS OUTPUT TRUNCATED ...]\n\n';
 

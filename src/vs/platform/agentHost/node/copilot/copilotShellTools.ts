@@ -13,6 +13,7 @@ import { Emitter, Event } from '../../../../base/common/event.js';
 import { ILogService } from '../../../log/common/log.js';
 import { TerminalClaimKind, type TerminalSessionClaim } from '../../common/state/protocol/state.js';
 import { isZsh } from '../agentHostShellUtils.js';
+import { isWindowsPowerShell } from '../../../terminal/common/terminalShellDetection.js';
 import { IAgentHostTerminalManager } from '../agentHostTerminalManager.js';
 
 /**
@@ -779,10 +780,6 @@ export async function createShellTools(
 interface ITerminalSandboxResolvedNetworkDomains {
 	allowedDomains: string[];
 	deniedDomains: string[];
-}
-
-function isWindowsPowerShell(envShell: string): boolean {
-	return envShell.endsWith('System32\\WindowsPowerShell\\v1.0\\powershell.exe');
 }
 
 function createPowerShellModelDescription(shellType: string, shellPath: string, isSandboxEnabled: boolean, networkDomains?: ITerminalSandboxResolvedNetworkDomains): string {

@@ -5,6 +5,7 @@
 
 import type { PermissionRequest } from '@github/copilot-sdk';
 import { hasKey } from '../../../../base/common/types.js';
+import { truncateToFit } from '../../../../base/common/strings.js';
 import { URI } from '../../../../base/common/uri.js';
 import { appendEscapedMarkdownInlineCode, escapeMarkdownLinkLabel } from '../../../../base/common/htmlContent.js';
 import { hash } from '../../../../base/common/hash.js';
@@ -391,7 +392,7 @@ export function isShellTool(toolName: string): boolean {
 // =============================================================================
 
 function truncate(text: string, maxLength: number): string {
-	return text.length > maxLength ? text.substring(0, maxLength - 3) + '...' : text;
+	return truncateToFit(text, maxLength, '...');
 }
 
 /**
