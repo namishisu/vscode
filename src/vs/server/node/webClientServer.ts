@@ -277,7 +277,8 @@ export class WebClientServer {
 				queryConnectionToken,
 				{
 					sameSite: 'lax',
-					maxAge: 60 * 60 * 24 * 7 /* 1 week */
+					maxAge: 60 * 60 * 24 * 7 /* 1 week */,
+					httpOnly: true
 				}
 			);
 
@@ -466,7 +467,8 @@ export class WebClientServer {
 				this._connectionToken.value,
 				{
 					sameSite: 'lax',
-					maxAge: 60 * 60 * 24 * 7 /* 1 week */
+					maxAge: 60 * 60 * 24 * 7 /* 1 week */,
+					httpOnly: true
 				}
 			);
 		}
