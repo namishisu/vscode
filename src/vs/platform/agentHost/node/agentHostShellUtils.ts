@@ -3,12 +3,9 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { posix as pathPosix, win32 as pathWin32 } from '../../../base/common/path.js';
 import * as platform from '../../../base/common/platform.js';
+import { isZsh as isZshShell } from '../../terminal/common/terminalShellDetection.js';
 
 export function isZsh(shell: string): boolean {
-	if (platform.OS === platform.OperatingSystem.Windows) {
-		return /^zsh(?:\.exe)?$/i.test(pathWin32.basename(shell));
-	}
-	return /^zsh$/.test(pathPosix.basename(shell));
+	return isZshShell(shell, platform.OS);
 }

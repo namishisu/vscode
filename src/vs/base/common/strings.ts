@@ -111,6 +111,24 @@ export function truncate(value: string, maxLength: number, suffix = Ellipsis): s
 	return `${value.substr(0, maxLength)}${suffix}`;
 }
 
+/**
+ * Truncates {@link value} so that the result including the suffix fits within
+ * {@link maxLength} characters. Unlike {@link truncate}, the returned string
+ * is guaranteed to be at most {@link maxLength} characters long.
+ */
+export function truncateToFit(value: string, maxLength: number, suffix = Ellipsis): string {
+	if (value.length <= maxLength) {
+		return value;
+	}
+
+	const cutLength = maxLength - suffix.length;
+	if (cutLength <= 0) {
+		return suffix.slice(0, maxLength);
+	}
+
+	return `${value.slice(0, cutLength)}${suffix}`;
+}
+
 export function truncateMiddle(value: string, maxLength: number, suffix = Ellipsis): string {
 	if (value.length <= maxLength) {
 		return value;

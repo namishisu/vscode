@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { CancellationToken } from '../../../../../base/common/cancellation.js';
+import { truncateToFit } from '../../../../../base/common/strings.js';
 import { LRUCache } from '../../../../../base/common/map.js';
 import { stableStringify } from '../../../../../base/common/objects.js';
 import { localize } from '../../../../../nls.js';
@@ -279,8 +280,7 @@ function normalizeRisk(value: unknown): ToolRiskLevel | undefined {
 }
 
 function truncate(s: string, max: number): string {
-	if (s.length <= max) { return s; }
-	return s.slice(0, max - 1) + '…';
+	return truncateToFit(s, max);
 }
 
 function defaultExplanationFor(risk: ToolRiskLevel, tool: IToolData): string {
