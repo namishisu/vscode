@@ -134,16 +134,16 @@ class RemoteExtensionHostAgentServer extends Disposable implements IServerAPI {
 			return void res.end(this._productService.commit || '');
 		}
 
+		if (!httpRequestHasValidConnectionToken(this._connectionToken, req, parsedUrl)) {
+			// invalid connection token
+			return serveError(req, res, 403, `Forbidden.`);
+		}
+
 		// Delay shutdown
 		if (pathname === '/delay-shutdown') {
 			this._serverLifetimeService.delay();
 			res.writeHead(200);
 			return void res.end('OK');
-		}
-
-		if (!httpRequestHasValidConnectionToken(this._connectionToken, req, parsedUrl)) {
-			// invalid connection token
-			return serveError(req, res, 403, `Forbidden.`);
 		}
 
 		if (pathname === '/vscode-remote-resource') {
